@@ -18,21 +18,21 @@ CREATE TABLE `a2q` (
   `id` int(11) NOT NULL,
   `source` int(11) NOT NULL,
   `target` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `timestamp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `c2a` (
   `id` int(11) NOT NULL,
   `source` int(11) NOT NULL,
   `target` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `timestamp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `c2q` (
   `id` int(11) NOT NULL,
   `source` int(11) NOT NULL,
   `target` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `timestamp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /* Initialize Primary Keys */
