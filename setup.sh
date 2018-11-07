@@ -1,5 +1,9 @@
 #!/bin/bash
+mkdir data
 cd data
+
+mkdir raw
+cd raw
 
 # Download Data
 wget http://snap.stanford.edu/data/sx-stackoverflow.txt.gz
