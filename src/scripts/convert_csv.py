@@ -20,9 +20,9 @@ if __name__ == '__main__':
 
     # Write Output CSV File
     out = open(args.out, 'w')
-    for row in data:
+    for i, row in enumerate(data):
         r = row.split(' ')
-        out.write(','.join(r) + '\n')
+        out.write(str(i) + ',' + ','.join(r) + '\n')
     out.close()
 
     print('> DONE!')
