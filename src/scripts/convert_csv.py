@@ -19,7 +19,7 @@ if __name__ == '__main__':
     data = open(args.data, 'r').read().split('\n')[:-1]
 
     # Write Output CSV File
-    out = open(args.out + '/' + args.data.split('.')[0] + '.csv', 'w')
+    out = open(args.out, 'w')
     for row in data:
         r = row.split(' ')
         out.write(','.join(r) + '\n')
