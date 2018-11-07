@@ -16,7 +16,7 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Open Load File
-    data = open(args.data, 'r').split('\n')[:-1]
+    data = open(args.data, 'r').read().split('\n')[:-1]
 
     # Write Output CSV File
     out = open(args.out + '/' + args.data.split('.')[0] + '.csv', 'w')
