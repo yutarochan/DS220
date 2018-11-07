@@ -20,7 +20,7 @@ if __name__ == '__main__':
     data = list(map(lambda x: x.split(','), data))
 
     # Collect ID List
-    ts_list = sort([d[2] for d in data])
+    ts_list = sorted([d[2] for d in data])
 
     # Build Timestamp to Record ID Dictionary
     tsid = {}
