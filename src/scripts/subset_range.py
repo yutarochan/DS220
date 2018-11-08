@@ -20,7 +20,10 @@ if __name__ == '__main__':
     data = list(map(lambda x: x.split(','), data))
 
     # Collect ID List
-    ts_list = sorted([d[2] for d in data])
+    ts_list = sorted([int(d[2]) for d in data])
+
+    # Compute Quartile Partition Size
+    size = len(ts_list) / 4
 
     # Build Timestamp to Record ID Dictionary
     tsid = {}
@@ -28,8 +31,8 @@ if __name__ == '__main__':
 
     # Compute Quartiles
     for i, p in enumerate([25, 50, 75, 100]):
-        print('[Partition ' + str(i) + ': ' + str(p) + '\% of Data]')
-        ts = stats.scoreatpercentile(ts_list, p)
+        print('[Partition ' + str(i) + ': ' + str(p) + '% of Data]')
+        ts = ts_list[size * (i + 1)]
         print('\tTimestamp: ' + str(ts))
         print('\tRecord ID: ' + str(tsid[ts]))
         print('\n')
