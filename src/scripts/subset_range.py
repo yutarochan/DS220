@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     # Build Timestamp to Record ID Dictionary
     tsid = {}
-    for i, d in enumerate(data): tsid[d[0]] = i
+    for i, d in enumerate(data): tsid[int(d[2])] = i
 
     # Compute Quartiles
     for i, p in enumerate([25, 50, 75, 100]):
