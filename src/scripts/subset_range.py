@@ -29,6 +29,8 @@ if __name__ == '__main__':
     tsid = {}
     for i, d in enumerate(data): tsid[int(d[2])] = i
 
+    print('TOTAL RECORDS: ' + str(len(ts_list)) + '\n')
+
     # Compute Quartiles
     for i, p in enumerate([25, 50, 75, 100]):
         print('[Partition ' + str(i) + ': ' + str(p) + '% of Data]')
