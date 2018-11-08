@@ -33,6 +33,6 @@ if __name__ == '__main__':
     for i, p in enumerate([25, 50, 75, 100]):
         print('[Partition ' + str(i) + ': ' + str(p) + '% of Data]')
         ts = ts_list[size * (i + 1)]
-        print('\tTimestamp: ' + str(ts))
-        print('\tRecord ID: ' + str(tsid[ts]))
+        print('Timestamp: ' + str(ts))
+        print('Record ID: ' + str(tsid[int(ts)]))
         print('\n')
