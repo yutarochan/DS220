@@ -16,7 +16,7 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Read CSV File
-    data = open(args.data, 'r').read().split('\n')
+    data = open(args.data, 'r').read().split('\n')[:-1]
     data = list(map(lambda x: x.split(','), data))
 
     # Collect ID List
