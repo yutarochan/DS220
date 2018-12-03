@@ -1,5 +1,5 @@
 '''
-Raw to CSV Converter
+Entity Extraction: Obtain list of entities from the edge nodes and output text file of nodes.
 Author: Yuya Jeremy Ong (yjo5006@psu.edu)
 '''
 from __future__ import print_function
@@ -9,7 +9,6 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", type=str, required=True, help="Original dataset to convert to csv")
     parser.add_argument("--out", type=str, required=True, help="Output Directory")
-    parser.add_argument("--end", type=int, required=True, help="End index for partitioning the csv file")
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -19,12 +18,19 @@ if __name__ == '__main__':
     # Open Load File
     data = open(args.data, 'r').read().split('\n')[:-1]
 
-    # Write Output CSV File
-    out = open(args.out, 'w')
+    # Collect Unique Node List
+    nodes = []
     for i, row in enumerate(data):
-        if args.end != -1 and i == args.end: break
         r = row.split(',')
-        out.write(str(i) + ',' + ','.join(r) + '\n')
+        if r[0] not in nodes: nodes.append(int(r[0]))
+        if r[1] not in nodes: nodes.append(int(r[1]))
+
+    # Sort Results
+    nodes = sorted(set(nodes))
+
+    # Output Results
+    out = open(args.out, 'w')
+    for n in nodes: out.write(str(n) + '\n')
     out.close()
 
     print('> DONE!')
