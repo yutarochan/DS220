@@ -4,6 +4,7 @@ Author: Yuya Jeremy Ong (yjo5006@psu.edu)
 '''
 from __future__ import print_function
 import argparse
+import itertools
 from multiprocessing.pool import Pool
 
 def parse_args():
@@ -20,19 +21,19 @@ if __name__ == '__main__':
     data = open(args.data, 'r').read().split('\n')[:-1]
 
     # Collect Unique Node List
-    nodes = []
     def check_node(row):
         r = row.split(',')
-        if r[0] not in nodes: nodes.append(int(r[0]))
-        if r[1] not in nodes: nodes.append(int(r[1]))
+	return int(r[1]), int(r[2])
 
     # Multiprocess
-    p = Pool(processes=16)
-    p.map(check_node, data)
+    p = Pool(processes=64)
+    nodes = p.map(check_node, data)
 
     # Sort Results
+    print('> Flattening and Sorting')
+    nodes = list(itertools.chain(*nodes))	
     nodes = sorted(set(nodes))
-
+    
     # Output Results
     out = open(args.out, 'w')
     for n in nodes: out.write(str(n) + '\n')
